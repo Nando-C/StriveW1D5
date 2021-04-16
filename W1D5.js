@@ -71,59 +71,68 @@ console.log('Ex.G :' ,me )
     Write a function called "dice"; it should randomize an integer number between 1 and 6.
 */
 /**************************************************************/
-
-
-console.log('Ex.1 :' , )
+const dice = function(){
+    return Math.ceil(Math.random() * 6)
+}
+console.log('Ex.1 :' ,dice() )
 /**************************************************************/
 /* Ex.2 
     Write a function called "whoIsBigger" which receives 2 numbers as parameters and returns the biggest one.
 */
 /**************************************************************/
-
-
-console.log('Ex.2 :' , )
+const whoIsBigger = function(n1, n2) {
+    return (n1>n2) ? n1 : (n2>n1) ? n2 : `Both numbers are equal: ${n2}`
+}
+console.log('Ex.2 :' , whoIsBigger(0,9))
 /**************************************************************/
 /* Ex.3
     Write a function called "splitMe" which receives a string as a parameter and returns an array with every word in that string.
     Ex. splitMe("I love coding") => returns ["I", "Love", "Coding"]
 */
 /**************************************************************/
-
-
-console.log('Ex.3 :' , )
+const splitMe = function(str) {
+    return str.split(' ')
+}
+console.log('Ex.3 :' ,splitMe('I love coding') )
 /**************************************************************/
 /* Ex.4
     Write a function called "deleteOne" which receives a string and a boolean as parameters. If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 */
 /**************************************************************/
-
-
-console.log('Ex.4 :' , )
+const deleteOne = function(string, bolean) {
+    return (bolean ? string.slice(1) : string.substr(0, string.length - 1))
+}
+console.log('Ex.4 :' ,deleteOne('Strive', false) )
 /**************************************************************/
 /* Ex.5
    Write a function called "onlyLetters" which receives a string as a parameter and returns it removing all the digits.
    Ex.: onlyLetters("I have 4 dogs")  => returns "I have  dogs"
 */
 /**************************************************************/
-
-
-console.log('Ex.5 :' , )
+const onlyLetters = function(string) {
+    return (string.replace(/[0-9]/g, ''))
+}
+console.log('Ex.5 :' ,onlyLetters('I have 4 dogs'))
 /**************************************************************/
 /* Ex.6 
    Write a function called "isThisAnEmail" which receives a string as a parameter and returns true if the string is a valid email address.
 */
 /**************************************************************/
-
-
-console.log('Ex.6 :' , )
+const isThisAnEmail = function(string) {
+    return (/@/.test(string))
+}
+console.log('Ex.6 :' , isThisAnEmail('nando@strive.com'))
 /**************************************************************/
 /* Ex.7
    Write a function called "whatDayIsIt" that should return the current day of the week.
 */
 /**************************************************************/
-
-
-console.log('Ex.7 :' , )
+const whatDayIsIt = function() {
+    weekDays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    today = new Date()
+    return weekDays[today.getDay()]
+}
+console.log('Ex.7 :' ,whatDayIsIt() )
 /**************************************************************/
 /* Ex.8
     Write a function called "rollTheDices" which receives a number as a parameter.
@@ -136,144 +145,42 @@ console.log('Ex.7 :' , )
     }
 */
 /**************************************************************/
-
-
-console.log('Ex.8 :' , )
+const rollTheDices = function(num) {
+    let rolled = {
+        sum: 0,
+        values: []
+    }
+    for(i=0; i<num; i++) {
+        let roll = dice()
+        rolled.sum += roll
+        rolled.values[i] = roll
+    }
+    return rolled
+}
+console.log('Ex.8 :' ,rollTheDices(3) )
 /**************************************************************/
 /* Ex.9
    Write a function called "howManyDays" which receives a date as a parameter and should return the number of days passed since that date.
 */
 /**************************************************************/
-
-
-console.log('Ex.9 :' , )
+const howManyDays = function(YYYY, MM, DD){
+    today = new Date()
+    return ((today.getFullYear() - YYYY) * 365) + ((1+today.getMonth()- MM) * 30) + (today.getDate() - DD)  // month calculation makes it buggy
+}
+console.log('Ex.9 :' ,howManyDays(2021, 03, 1) )
 /**************************************************************/
 /* Ex.10
    Write a function called "isTodayMyBirthday" which should return true if today's your birthday, false otherwise.
 */
-
+/**************************************************************/
+const isTodayMyBirthday = function(){
+    today = new Date()
+    return ( (1 + today.getMonth() === 10) && today.getDate() === 31 ? true : false )
+}
+console.log('Ex. 10:' ,isTodayMyBirthday() )
+/**************************************************************/
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of this file!
-/**************************************************************/
-
-
-console.log('Ex. 10:' , )
-/**************************************************************/
-/* Ex.11
-   Write a function called "deleteProp" which receives an object and a string as parameters, and returns the given object after deleting its property named as the given string.
-*/
-/**************************************************************/
-
-
-console.log('Ex.11 :' , )
-/**************************************************************/
-/* Ex.12 
-    Write a function called "olderMovie" which finds the oldest movie in the array provided at the end of this file.
-*/
-/**************************************************************/
-
-
-console.log('Ex.12 :' , )
-/**************************************************************/
-/* Ex.13
-    Write a function called "countMovies" which returns the number of movies contained in the array provided at the end of this file.
-*/
-/**************************************************************/
-
-
-console.log('Ex.13 :' , )
-/**************************************************************/
-/* Ex.14
-    Write a function called "onlyTheTitles" which creates an array with just the titles of the movies provided in the array at the end of the file.
-*/
-/**************************************************************/
-
-
-console.log('Ex.14 :' , )
-/**************************************************************/
-/* Ex.15
-   Write a function called "onlyInThisMillennium" which returns only the movies produced in this millennium.
-*/
-/**************************************************************/
-
-
-console.log('Ex.15 :' , )
-/**************************************************************/
-/* Ex.16 
-    Write a function called "getMovieById" which receives an id as a parameter and returns the movie with the given id.
-*/
-/**************************************************************/
-
-
-console.log('Ex.16 :' , )
-/**************************************************************/
-/* Ex.17
-    Write a function called "sumAllTheYears" which returns the sum of all the years in which the movies provided have been produced.
-*/
-/**************************************************************/
-
-
-console.log('Ex.17 :' , )
-/**************************************************************/
-/* Ex.18
-    Write a function called "searchByTitle" which receives a string as a parameter and returns all the movies which contain that string in the title.
-*/
-/**************************************************************/
-
-
-console.log('Ex.18 :' , )
-/**************************************************************/
-/* Ex.19
-    Write a function called "searchAndDivide" which receives a string as a parameter and returns an object;
-    this object should contain an array called "match", made by all the movies which contain the given string in the title,
-    and another array "unmatch" with all the remaining ones.
-*/
-/**************************************************************/
-
-
-console.log('Ex.19 :' , )
-/**************************************************************/
-/* Ex.20
-   Write a function called "removeIndex" which receives a number as a parameter and returns the movies array without the element in the given position.
-*/
-
-// [EXTRAS] JS Advanced
-/**************************************************************/
-
-
-console.log('Ex.20 :' , )
-/**************************************************************/
-/* Ex.21
-  Create a function called "halfTree" which receives a number as a parameter and builds an "*" half tree with the given height.
-  Example:
-  halfTree(3)
-  *
-  **
-  ***
-*/
-/**************************************************************/
-
-
-console.log('Ex.21 :' , )
-/**************************************************************/
-/* Ex.22 
-  Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
-  Example: 
-  tree(3)
-    *  
-   *** 
-  *****
-*/
-/**************************************************************/
-
-
-console.log('Ex.22 :' , )
-/**************************************************************/
-/* Ex.23
-  Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
-*/
-
-/* This movies array is used throughout the exercises. Please don't change it :)  */
 const movies = [
     {
       Title: "The Lord of the Rings: The Fellowship of the Ring",
@@ -388,3 +295,187 @@ const movies = [
         "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
     },
   ]
+/* Ex.11
+   Write a function called "deleteProp" which receives an object and a string as parameters, and returns the given object after deleting its property named as the given string.
+*/
+/**************************************************************/
+const deleteProp = function(object, prop) {
+    delete object[prop]
+    return object
+}
+console.log('Ex.11 :' ,deleteProp({name: 'Hernando', surename: 'Crespo', skills: 'guitar'}, 'surename' ) )
+/**************************************************************/
+/* Ex.12 
+    Write a function called "olderMovie" which finds the oldest movie in the array provided at the end of this file.
+*/
+/**************************************************************/
+const olderMovie = function(movie){
+    let movieYear = 1000000000
+    let oldestMovie = ''
+    for(i=0; i < movie.length; i++) {
+        if(parseInt(movie[i].Year) < movieYear){
+            movieYear = parseInt(movie[i].Year)
+           oldestMovie = movie[i].Title
+        }
+    }
+   return oldestMovie
+}
+console.log('Ex.12 :' ,olderMovie(movies))
+//   {
+//     Title: "Lord of the Flies",
+//     Year: "1990",
+//     imdbID: "tt0100054",
+//     Type: "movie",
+//     Poster:
+//       "https://m.media-amazon.com/images/M/MV5BOTI2NTQyODk0M15BMl5BanBnXkFtZTcwNTQ3NDk0NA@@._V1_SX300.jpg",
+//   },
+/**************************************************************/
+/* Ex.13
+    Write a function called "countMovies" which returns the number of movies contained in the array provided at the end of this file.
+*/
+/**************************************************************/
+const countMovies = function(array){
+    return array.length
+}
+console.log('Ex.13 :' ,countMovies(movies) )
+/**************************************************************/
+/* Ex.14
+    Write a function called "onlyTheTitles" which creates an array with just the titles of the movies provided in the array at the end of the file.
+*/
+/**************************************************************/
+const onlyTheTitles =function(movie){
+    let titles = []
+    for(i=0; i < movie.length; i++){
+        titles[i] = movie[i].Title
+    }
+    return titles
+}
+console.log('Ex.14 :' ,onlyTheTitles(movies) )
+/**************************************************************/
+/* Ex.15
+   Write a function called "onlyInThisMillennium" which returns only the movies produced in this millennium.
+*/
+/**************************************************************/
+const onlyInThisMillennium = function(movie){
+    let inThisMilenium = []
+    for(i=0; i < movie.length; i++){
+        if(parseInt(movie[i].Year) >= 2000){
+            inThisMilenium.push(movie[i])
+        }
+    }
+    return inThisMilenium
+}
+console.log('Ex.15 :' ,onlyInThisMillennium(movies) )
+/**************************************************************/
+/* Ex.16 
+    Write a function called "getMovieById" which receives an id as a parameter and returns the movie with the given id.
+*/
+/**************************************************************/
+const getMovieById = function(id) {
+    
+    for(i=0; i < movies.length; i++) {
+        
+        if(movies[i].imdbID === id){
+            return movies[i]
+        }
+    }
+}
+console.log('Ex.16 :' ,getMovieById('tt4154756') )
+/**************************************************************/
+/* Ex.17
+    Write a function called "sumAllTheYears" which returns the sum of all the years in which the movies provided have been produced.
+*/
+/**************************************************************/
+const sumAllTheYears = function() {
+    
+    let sumYears = 0
+
+    for(i=0; i < movies.length; i++) {
+        sumYears += parseInt(movies[i].Year)
+    }
+    return sumYears
+}
+console.log('Ex.17 :' ,sumAllTheYears(movies) )
+/**************************************************************/
+/* Ex.18
+    Write a function called "searchByTitle" which receives a string as a parameter and returns all the movies which contain that string in the title.
+*/
+/**************************************************************/
+const searchByTitle = function(str) {
+    
+    let inTheTitle = []
+    let regex = new RegExp(str)
+
+    for(i=0; i < movies.length; i++) {
+        if(regex.test(movies[i].Title)) {
+            inTheTitle.push(movies[i])
+        }
+    }
+    return inTheTitle
+}
+console.log('Ex.18 :' ,searchByTitle('Lord') )
+/**************************************************************/
+/* Ex.19
+    Write a function called "searchAndDivide" which receives a string as a parameter and returns an object;
+    this object should contain an array called "match", made by all the movies which contain the given string in the title,
+    and another array "unmatch" with all the remaining ones.
+*/
+/**************************************************************/
+const searchAndDivide = function(str) {
+    let moviesDivided = {
+        match: [],
+        unmatch:[]
+    }
+    let regex = new RegExp(str)
+    for(i=0; i < movies.length; i++) {
+        if(regex.test(movies[i].Title)) {
+            moviesDivided.match.push(movies[i])
+        } else {
+            moviesDivided.unmatch.push(movies[i])
+        }
+    }
+    return moviesDivided
+}
+console.log('Ex.19 :' ,searchAndDivide('Avengers') )
+/**************************************************************/
+/* Ex.20
+   Write a function called "removeIndex" which receives a number as a parameter and returns the movies array without the element in the given position.
+*/
+/**************************************************************/
+
+
+console.log('Ex.20 :' , )
+/**************************************************************/
+// [EXTRAS] JS Advanced
+
+/* Ex.21
+  Create a function called "halfTree" which receives a number as a parameter and builds an "*" half tree with the given height.
+  Example:
+  halfTree(3)
+  *
+  **
+  ***
+*/
+/**************************************************************/
+
+
+console.log('Ex.21 :' , )
+/**************************************************************/
+/* Ex.22 
+  Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
+  Example: 
+  tree(3)
+    *  
+   *** 
+  *****
+*/
+/**************************************************************/
+
+
+console.log('Ex.22 :' , )
+/**************************************************************/
+/* Ex.23
+  Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
+*/
+
+/* This movies array is used throughout the exercises. Please don't change it :)  */
